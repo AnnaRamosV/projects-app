@@ -1,6 +1,6 @@
 <template>
   <SupraMenu />
-  <main>
+  <main class="flex flex-row">
     <LateralisMenu />
     <RouterView />
   </main>

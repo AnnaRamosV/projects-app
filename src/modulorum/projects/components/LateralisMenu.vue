@@ -1,9 +1,9 @@
 <template>
   <aside class="bg-base-200 w-72 min-h-screen">
     <h2 class="text-lg font-bold mx-4">Proyectos</h2>
-    <p class="text-sm font-bold mx-4"></p>
+    <p class="text-sm font-bold mx-4">No hay proyectos</p>
 
-    <ul class="menu ml-10 mt-4 p-3">
+    <ul class="menu ml-3 mt-4 p-3">
       <li><a>Item 1</a></li>
       <li>
         <details open>
