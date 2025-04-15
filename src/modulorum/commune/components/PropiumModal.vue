@@ -5,7 +5,9 @@
         <slot name="header"></slot>
       </div>
 
-      <div class="my-5"></div>
+      <div class="my-5">
+        <slot name="body"></slot>
+      </div>
       <div class="border-t border-t-blue-500 pt-5">
         <slot name="footer"></slot>
       </div>
