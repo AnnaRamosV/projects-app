@@ -55,7 +55,11 @@
     </template>
   </propium-modal>
 
-  <fab-button positione="bottom-right" @click="modalAperta = true">
+  <fab-button
+    positione="bottom-right"
+    class="fixed bottom-4 right-4 z-50"
+    @click="modalAperta = true"
+  >
     <AddCircle />
   </fab-button>
 

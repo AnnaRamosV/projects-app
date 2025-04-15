@@ -1,42 +1,32 @@
 <template>
   <button
     @click="$emit('click')"
-    class="['btn btn-circle btn-secondary fixed', positione]"
-  ></button>
+    :class="['btn btn-circle btn-secondary fixed z-9999', positionClasses]"
+  >
+    <slot />
+  </button>
 </template>
 
-<script lang="ts" setup>
-interface Props {
-  positione: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-}
+<script setup lang="ts">
+import { computed } from 'vue';
+import { defineProps } from 'vue';
 
-withDefaults(defineProps<Props>(), {
-  positione: 'bottom-right',
+const props = defineProps<{
+  positione: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
+}>();
+
+const positionClasses = computed(() => {
+  switch (props.positione) {
+    case 'bottom-right':
+      return 'fixed bottom-4 right-4';
+    case 'bottom-left':
+      return 'fixed bottom-4 left-4';
+    case 'top-right':
+      return 'fixed top-4 right-4';
+    case 'top-left':
+      return 'fixed top-4 left-4';
+    default:
+      return '';
+  }
 });
-
-defineEmits(['click']);
 </script>
-
-<style scoped>
-@import 'tailwindcss';
-
-.top-left {
-  top: 10;
-  left: 10;
-}
-
-.top-right {
-  top: 10;
-  right: 10;
-}
-
-.bottom-left {
-  bottom: 10;
-  left: 10;
-}
-
-.bottom-right {
-  bottom: 10;
-  right: 10;
-}
-</style>

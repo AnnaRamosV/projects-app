@@ -12,11 +12,11 @@
             class="input input-bordered w-full flex-1 input-primary"
             v-model="inputValorem"
           />
+          <div class="flex justify-end mt-m pt-5">
+            <button @click="$emit('claudere')" class="btn">Close</button>
+            <button type="submit" class="btn btn-primary ml-4">Aceptar</button>
+          </div>
         </form>
-        <div class="flex justify-end mt-m">
-          <button @click="$emit('claudere')" class="btn">Close</button>
-          <button type="submit" class="btn btn-primary ml-4"></button>
-        </div>
       </div>
     </div>
   </dialog>
@@ -57,6 +57,7 @@ watch(props, ({ aperta }) => {
 });
 
 const submitValorem = () => {
+  console.log({ valorem: inputValorem.value });
   if (!inputValorem.value) {
     inputRef.value?.focus();
     return;
