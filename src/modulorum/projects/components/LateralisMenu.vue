@@ -4,26 +4,24 @@
     <p v-if="projectStore.nonProject" class="text-sm font-bold mx-4">No hay proyectos</p>
 
     <ul v-else class="menu">
-      <li><a>Item 1</a></li>
-      <li>
-        <details open>
-          <summary>Parent</summary>
-          <ul>
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-            <li>
-              <details open>
-                <summary>Parent</summary>
-                <ul>
-                  <li><a>Submenu 1</a></li>
-                  <li><a>Submenu 2</a></li>
-                </ul>
-              </details>
-            </li>
-          </ul>
-        </details>
+      <li v-for="project in projectStore.projectList" :key="project.id">
+        <template v-if="project.chores.length > 0">
+          <details>
+            <summary>
+              <router-link :to="`/projects/${project.id}`">{{ project.nomen }}</router-link>
+            </summary>
+            <ul>
+              <li v-for="chore in project.chores" :key="chore.id">
+                <router-link :to="`/projects/${project.id}`">{{ chore.nomen }}</router-link
+                >>
+              </li>
+            </ul>
+          </details>
+        </template>
+        <template v-else>
+          <router-link :to="`/projects/${project.id}`">{{ project.nomen }}</router-link>
+        </template>
       </li>
-      <li><a>Item 2</a></li>
     </ul>
   </aside>
 </template>
